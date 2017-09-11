@@ -374,6 +374,9 @@
 		},
 
 		_prepareDragStart: function (/** Event */evt, /** Touch */touch, /** HTMLElement */target, /** Number */startIndex) {
+
+			evt.stopPropagation();
+
 			var _this = this,
 				el = _this.el,
 				options = _this.options,
@@ -554,6 +557,9 @@
 
 
 		_onTouchMove: function (/**TouchEvent*/evt) {
+
+			evt.stopPropagation();
+
 			if (tapEvt) {
 				var	options = this.options,
 					fallbackTolerance = options.fallbackTolerance,
@@ -1439,7 +1445,7 @@
 		}
 	}
 
-	// Fixed #973: 
+	// Fixed #973:
 	_on(document, 'touchmove', function (evt) {
 		if (Sortable.active) {
 			evt.preventDefault();
